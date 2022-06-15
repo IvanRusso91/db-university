@@ -63,7 +63,11 @@ relativo dipartimento, in ordine alfabetico per cognome e nome:
 superare ciascuno dei suoi esami:
 
 
-
+	SELECT COUNT(*) AS `numero_tentativi`, `students`.`name`,`students`.`surname`, `exams`.`id` 
+	FROM `students` 
+	JOIN `exam_student` ON `students`.`id`=`exam_student`.`student_id`
+	JOIN `exams` ON `exam_student`.`exam_id`= `exams`.`id`
+	GROUP BY `exams`.`id`, `students`.`name`, `students`.`surname`;
 
 
 
